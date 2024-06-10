@@ -8,8 +8,13 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            
-        }
+            margin: 0;
+            padding: 0;
+            background-image: url(https://i.pinimg.com/736x/a9/da/88/a9da88909c03b0c20ac09881f18fc52c.jpg);
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }   
 
         .header {
             background: linear-gradient(87.4deg, rgb(255, 241, 165) 1.9%, rgb(200, 125, 76) 49.7%, rgb(83, 54, 54) 100.5%);
@@ -36,17 +41,73 @@
 
         h1, h2 {
             text-align: center;
+            background-color: beige;
+            border-radius: 15px;
+            padding: 10px;
+            margin: 10px auto;
+            width: fit-content;
+            transition: transform 0.3s ease, background-color 0.3s ease; 
         }
+
+         h1:hover, h2:hover {
+            transform: scale(1.05); /* Slightly increase the size on hover */
+            background-color: #c19a6b; /* Slightly darker shade on hover */
+        }
+        h1 {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        h2 {
+            position: sticky;
+            top: 50px;
+            z-index: 999;
+        }
+
+        p{
+            text-align: center;
+        }
+
+        button{
+        display: block;
+        margin: 0 auto 20px auto;
+        padding: 20px 40px;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: brown;
+        border: 1px solid beige;
+        border-radius: 30px;
+        color: white;
+        font-size: 15px;
+        box-shadow: 5px 5px 10px rgb(0,0, 0, 0.5);
+        transition: all 150ms ease-in-out;
+        
+      }
+
+      button:hover{
+        color: whitesmoke;
+        background: rgb(66, 3, 3);
+        cursor: pointer;
+      }
+
 
         .paragraph {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 20px;
+            margin: 50px 20px 20px 20px; /* Adjusted margin to move down from h2 */
         }
 
         .paragraph img {
             margin-right: 20px;
+            transition: transform 0.3s ease; 
+        }
+
+        .paragraph img:hover {
+            transform: scale(1.05); /* Slightly increase the size on hover */
         }
 
         .paragraph p {
@@ -75,10 +136,21 @@
             gap: 10px;
         }
 
-        .sign-up button {
-            border: 1px solid #000;
-            background-color: white;
+         .sign-up button {
             padding: 5px 10px;
+            font-size: 48px;
+            background-color: brown;
+            border: 1px solid beige;
+            border-radius: 30px;
+            color: white;
+            font-size: 15px;
+            box-shadow: 5px 5px 10px rgb(0, 0, 0, 0.5);
+            transition: all 150ms ease-in-out;
+        }
+
+        .sign-up button:hover {
+            color: whitesmoke;
+            background: rgb(66, 3, 3);
             cursor: pointer;
         }
 
@@ -91,6 +163,11 @@
 
         .connect, .page-owner {
             text-align: center;
+        }
+
+        .page-owner{
+            margin-top: 50px;
+            font-style: italic;
         }
     </style>
 </head>
@@ -144,8 +221,50 @@
     </div>
 
     <div class="page-owner">
-        Coded by Kerileng Soke
+        Coded by @Kerileng Soke
     </div>
+<script>
+    function joinNow() {
+            let name = prompt("What is your name?");
+            let age = prompt("How old are you?");
+            let email = prompt("What is your email address?");
+            
+            // Regular expression for basic email validation
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            if (age > 10) {
+                alert("Welcome to Bible Study With Me 🙏🙏" + name);
+            } else {
+                alert("Sorry "+ name + ", You can only join if you are 10 years older😞");
+            }
+        }
+
+        function promptForEmail() {
+            let email = prompt(`Please enter your email address.`);
+
+            // Regular expression for basic email validation
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+
+            alert(`Thank you! Your email (${email}) has been received for ${action}.`);
+        }
+
+        let join = document.querySelector("button");
+        join.addEventListener("click", joinNow);
+
+        let signup = document.getElementById("sign-up")
+        signup.addEventListener("click", promptForEmail);
+        document.getElementById("partner").addEventListener("click", () => promptForEmail('partnering'));
+    
+</script>
 </body>
 </html>
