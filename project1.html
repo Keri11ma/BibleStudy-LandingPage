@@ -177,10 +177,10 @@
             <img src="https://c8.alamy.com/comp/2J6WGY2/christianity-religion-vector-icon-with-bible-cross-and-white-dove-christian-catholic-holy-book-pigeon-bird-and-crucifix-symbol-isolated-on-white-background-religious-emblem-2J6WGY2.jpg" alt="Bible emblem">
         </div>
         <div class="links">
-            <a href="#">Get Bible</a>
-            <a href="#">Resources</a>
-            <a href="#">Sessions</a>
-            <a href="#">Testimonies</a>
+            <a href="http://triggs.djvu.org/djvu-editions.com/BIBLES/DRV/Download.pdf">Get Bible</a>
+            <a href="https://foundations.icm.org/how-to-study-the-bible/?utm_source=google&utm_medium=cpc&utm_campaign=LM-FDN-Search-All-NAV-Blog&utm_term=how%20to%20start%20studying%20the%20bible&gad_source=1&gclid=CjwKCAjwjqWzBhAqEiwAQmtgT_zoSOvgFRQA3bwh_zYa4_Wn5AXIL6w5p4ejLEjQ1KfCiwGBvxyNiBoCUT8QAvD_BwE">Resources</a>
+            <a href="https://s7d9.scene7.com/is/content/LifeWayChristianResources/Finding_IAM_Samplepdf.pdf">Sessions</a>
+            <a href="https://mariaerving.com/my-encounter-with-jesus/">Testimonies</a>
         </div>
     </div>
     <h1>Bible Study With Me</h1>
@@ -193,7 +193,7 @@
    
     <hr>
 
-    <p>Want to learn more about bible study and fellowship. <a href="#">Please click the link...</a></p>
+    <p>Want to learn more about bible study and fellowship. <a href="https://www.bsfinternational.org/">Please click the link...</a></p>
 
     <button>Join Now</button>
 
@@ -201,13 +201,13 @@
         <div>
             <img src="https://static.vecteezy.com/system/resources/thumbnails/005/269/576/small/mail-icon-free-vector.jpg" alt="Mail Icon" width="50">
             <span>Be the first to get Sunday nuggets.</span>
-            <button>SIGN UP</button>
+            <button id="signUpButton">SIGN UP</button>
         </div>
         <hr>
         <div>
             <img src="https://media.istockphoto.com/id/1408881782/vector/customer-care-and-support-concept-editable-stroke-outline-icon-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=B3uVn6yEbaa23M6xKbb6m7nfF45le9zueWrlRIM3QfY=" alt="Heart Icon" width="50">
             <span>Partner with me to grow our bible study group</span>
-            <button>PARTNER</button>
+            <button id="partnerButton">PARTNER</button>
         </div>
     </div>
 
@@ -244,10 +244,9 @@
             }
         }
 
-        function promptForEmail() {
-            let email = prompt(`Please enter your email address.`);
+        function signUp() {
+            let email = prompt("Please enter your email address:");
 
-            // Regular expression for basic email validation
             let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
             if (!emailPattern.test(email)) {
@@ -255,15 +254,34 @@
                 return;
             }
 
-            alert(`Thank you! Your email (${email}) has been received for ${action}.`);
+            alert("Thank you for signing up🤗! You will now receive Sunday nuggets at " + email);
         }
 
-        let join = document.querySelector("button");
-        join.addEventListener("click", joinNow);
+        function partner() {
+        let name = prompt("What is your name?");
+        let age = prompt("How old are you?");
+        let email = prompt("What is your email address?");
 
-        let signup = document.getElementById("sign-up")
-        signup.addEventListener("click", promptForEmail);
-        document.getElementById("partner").addEventListener("click", () => promptForEmail('partnering'));
+        // Regular expression for basic email validation
+        let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+        if (!emailPattern.test(email)) {
+            alert("Please enter a valid email address.");
+            return;
+        }
+
+        if (age > 20) {
+            alert("Thank you🤗, " + name + "! You are now a partner. We will contact you at " + email);
+        } else {
+            alert("Sorry😞 " + name + ", you must be over 20 years old to partner with us.");
+        }
+    }
+
+   
+    document.getElementById('partnerButton').onclick = partner;
+    document.getElementById('signUpButton').onclick = signUp;
+
+       
     
 </script>
 </body>
