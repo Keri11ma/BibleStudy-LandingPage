@@ -195,7 +195,7 @@
 
     <p>Want to learn more about bible study and fellowship. <a href="https://www.bsfinternational.org/">Please click the link...</a></p>
 
-    <button>Join Now</button>
+    <button id="joinButton">Join Now</button>
 
     <div class="sign-up">
         <div>
@@ -229,7 +229,6 @@
             let age = prompt("How old are you?");
             let email = prompt("What is your email address?");
             
-            // Regular expression for basic email validation
             let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
             if (!emailPattern.test(email)) {
@@ -280,6 +279,7 @@
    
     document.getElementById('partnerButton').onclick = partner;
     document.getElementById('signUpButton').onclick = signUp;
+    document.getElementById('joinButton').onclick = joinNow;
 
        
     
